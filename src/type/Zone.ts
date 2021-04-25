@@ -1,5 +1,5 @@
 export default interface Zone {
-  name: string
-  date: string
-  hour: string
+  name: string;
+  date: string;
+  hour: string;
 }

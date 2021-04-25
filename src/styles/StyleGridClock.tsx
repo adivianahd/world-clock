@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const StyleGridClock = styled.div`
   display: flex;
@@ -8,6 +8,6 @@ const StyleGridClock = styled.div`
   max-width: 900px;
   padding: 50px;
   }
-  `
+  `;
 
-export default StyleGridClock
+export default StyleGridClock;

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const BoxRegionWorld = styled.div`
   display: flex;
@@ -22,6 +22,6 @@ const BoxRegionWorld = styled.div`
         background: #1c95d6;
         color: #fff;
       }
-  `
+  `;
 
-export default BoxRegionWorld
+export default BoxRegionWorld;

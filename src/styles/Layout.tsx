@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Layout = styled.div`
   width: 100%;
@@ -8,6 +8,6 @@ const Layout = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  `
+`;
 
-export default Layout
+export default Layout;

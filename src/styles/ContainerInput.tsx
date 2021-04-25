@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const ContainerInput = styled.div`
   display: flex;
@@ -21,11 +21,11 @@ const ContainerInput = styled.div`
     border-radius: 0px 5px 5px 0px;
     border-width: 0px;
     outline: none;
-    transition: .5s;
-      &:hover{
-        background: #1c95d6;
-        color: #fff;
-      }
+    transition: 0.5s;
+    &:hover {
+      background: #1c95d6;
+      color: #fff;
+    }
   }
-  `
-export default ContainerInput
+`;
+export default ContainerInput;

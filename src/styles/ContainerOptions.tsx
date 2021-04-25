@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const ContainerOptions = styled.div`
   display: flex;
@@ -6,8 +6,8 @@ const ContainerOptions = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-    .option{
-      width: 225px;
-    }
-  `
-export default ContainerOptions
+  .option {
+    width: 225px;
+  }
+`;
+export default ContainerOptions;
