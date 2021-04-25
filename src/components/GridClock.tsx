@@ -15,7 +15,9 @@ const GridClock = ({ onDelete, zonesSelected }: Props): JSX.Element => {
       {zonesSelected.map((zone) => (
         <CardZone key={zone.name}>
           <button onClick={() => onDelete(zone.name)}>X</button>
-          {zone.name.split('/').map(e => <ZoneName key={e}>{e}</ZoneName>)}
+          {zone.name.split("/").map((e) => (
+            <ZoneName key={e}>{e}</ZoneName>
+          ))}
           <ZoneInfo>Date: {zone.date}</ZoneInfo>
           <ZoneInfo>Hour: {zone.hour}</ZoneInfo>
         </CardZone>

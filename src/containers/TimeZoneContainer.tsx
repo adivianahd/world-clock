@@ -6,7 +6,13 @@ import GridClock from "@components/GridClock";
 import { useWorldClock } from "@hooks/useWorldClock";
 
 export default function TimeZoneContainer() {
-  const { options, zonesSelected, loading, onSelect, onDelete } = useWorldClock();
+  const {
+    options,
+    zonesSelected,
+    loading,
+    onSelect,
+    onDelete,
+  } = useWorldClock();
 
   return (
     <>

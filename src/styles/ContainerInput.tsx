@@ -4,7 +4,7 @@ const ContainerInput = styled.label`
   position: relative;
   display: flex;
   justify-content: center;
-  border: 1px solid ${p => p.theme.primaryColor};
+  border: 1px solid ${(p) => p.theme.primaryColor};
   border-radius: 7px 35px 35px 7px;
   padding-left: 12px;
 
@@ -14,7 +14,7 @@ const ContainerInput = styled.label`
     border-width: 0px;
     outline: none;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 
   button {
@@ -25,11 +25,11 @@ const ContainerInput = styled.label`
     transition: 0.3s;
     border: none;
     border-radius: 100%;
-    background: ${p => p.theme.primaryColor};
-    color: ${p => p.theme.secondaryColor};
+    background: ${(p) => p.theme.primaryColor};
+    color: ${(p) => p.theme.secondaryColor};
     cursor: pointer;
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
     &:active {
       opacity: 0.3;

@@ -41,14 +41,17 @@ const Input = ({ options, onSelect }: Props): JSX.Element => {
           {text !== "" &&
             options
               .filter((valueText) => valueText.indexOf(text) !== -1)
-              .map((optionAutocomplete) => (
-                text !== optionAutocomplete && <Option
-                  key={optionAutocomplete}
-                  onClick={() => setText(optionAutocomplete)}
-                >
-                   {optionAutocomplete}
-                </Option>
-              ))}
+              .map(
+                (optionAutocomplete) =>
+                  text !== optionAutocomplete && (
+                    <Option
+                      key={optionAutocomplete}
+                      onClick={() => setText(optionAutocomplete)}
+                    >
+                      {optionAutocomplete}
+                    </Option>
+                  )
+              )}
         </ContainerOptions>
       </ContainerInput>
     </>

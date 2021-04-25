@@ -5,8 +5,8 @@ const Option = styled.div`
   padding: 5px 15px;
 
   &:hover {
-    background: ${p => p.theme.primaryColor};
-    color: ${p => p.theme.secondaryColor};
+    background: ${(p) => p.theme.primaryColor};
+    color: ${(p) => p.theme.secondaryColor};
   }
 `;
 export default Option;

@@ -26,30 +26,37 @@ interface WorldClockProviderProps {
 
 export function WorldClockProvider({ children }: WorldClockProviderProps) {
   const [options, setOptions] = useState<string[]>(initialValues.options);
-  const [zonesSelected, setZonesSelected] = useState<Zone[]>(initialValues.zonesSelected);
+  const [zonesSelected, setZonesSelected] = useState<Zone[]>(
+    initialValues.zonesSelected
+  );
   const [loading, setLoading] = useState<boolean>(initialValues.loading);
 
   useEffect(() => {
-    WorldTimeApiService.getZones().then(setOptions).then(() => setLoading(false))
+    WorldTimeApiService.getZones()
+      .then(setOptions)
+      .then(() => setLoading(false));
   }, []);
 
-  const checkIfItWasAdded = name => zonesSelected.some(zone => zone.name === name)
+  const checkIfItWasAdded = (name) =>
+    zonesSelected.some((zone) => zone.name === name);
 
   const onSelect = (name: string) => {
-    if(checkIfItWasAdded(name)) return;
-    setLoading(true)
+    if (checkIfItWasAdded(name)) return;
+    setLoading(true);
     WorldTimeApiService.getZoneByName(name).then((newZoneSelected) => {
       setZonesSelected([newZoneSelected, ...zonesSelected]);
-      setLoading(false)
+      setLoading(false);
     });
   };
 
   const onDelete = (name: string) => {
-    setZonesSelected(zonesSelected.filter(zone => zone.name !== name))
+    setZonesSelected(zonesSelected.filter((zone) => zone.name !== name));
   };
 
   return (
-    <WorldClockContext.Provider value={{ options, zonesSelected, loading, onSelect, onDelete }}>
+    <WorldClockContext.Provider
+      value={{ options, zonesSelected, loading, onSelect, onDelete }}
+    >
       {children}
     </WorldClockContext.Provider>
   );

@@ -9,7 +9,7 @@ const ContainerOptions = styled.div`
   margin-top: 40px;
   margin-right: 20px;
 
-  box-shadow: ${p => p.theme.containerShadow};
-  background: ${p => p.theme.containerColor};
+  box-shadow: ${(p) => p.theme.containerShadow};
+  background: ${(p) => p.theme.containerColor};
 `;
 export default ContainerOptions;

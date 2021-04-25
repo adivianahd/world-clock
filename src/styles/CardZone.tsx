@@ -8,7 +8,7 @@ const CardZone = styled.div`
   min-width: 250px;
   margin: 10px;
   border-radius: 10px;
-  box-shadow: ${p => p.theme.cardShadow};
+  box-shadow: ${(p) => p.theme.cardShadow};
   button {
     align-self: flex-end;
     background: none;
@@ -20,8 +20,8 @@ const CardZone = styled.div`
     transition: .3s;
     cursor:pointer;
       &:hover{
-        color: ${p => p.theme.secondaryColor};
-        background: ${p => p.theme.primaryColor};
+        color: ${(p) => p.theme.secondaryColor};
+        background: ${(p) => p.theme.primaryColor};
       }
       &:active{
         opacity: 0.5;
