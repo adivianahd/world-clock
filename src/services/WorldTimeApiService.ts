@@ -26,13 +26,13 @@ interface WorldTimeApiZoneResponse {
 const getZones = (): Promise<string[]> => fetchData(URL_API).catch(getZones);
 
 const getZoneByName = (name: string): Promise<Zone> =>
-  fetchData(`${URL_API}${name}`).then(
-    ({ datetime }: WorldTimeApiZoneResponse) => ({
+  fetchData(`${URL_API}${name}`)
+    .then(({ datetime }: WorldTimeApiZoneResponse) => ({
       name,
       date: getDateByISO(datetime),
       hour: getHourByISO(datetime),
-    })
-  ).catch(() => getZoneByName(name))
+    }))
+    .catch(() => getZoneByName(name));
 
 export default {
   getZones,

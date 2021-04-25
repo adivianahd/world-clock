@@ -14,8 +14,8 @@ const initialValues: WorldClockValue = {
   options: [],
   loading: true,
   zonesSelected: [],
-  onSelect: () => { },
-  onDelete: () => { },
+  onSelect: () => {},
+  onDelete: () => {},
 };
 
 const WorldClockContext = createContext<WorldClockValue>(initialValues);
@@ -48,12 +48,14 @@ export function WorldClockProvider({ children }: WorldClockProviderProps) {
     if (checkIfItWasAdded(name)) return;
 
     setLoading(true);
-    ApiService.getZoneByName(name).then((newZoneSelected) => {
-      setZonesSelected([newZoneSelected, ...zonesSelected]);
-      setLoading(false);
-    }).catch(() => {
-      onSelect(name)
-    });
+    ApiService.getZoneByName(name)
+      .then((newZoneSelected) => {
+        setZonesSelected([newZoneSelected, ...zonesSelected]);
+        setLoading(false);
+      })
+      .catch(() => {
+        onSelect(name);
+      });
   };
 
   const onDelete = (name: string) => {
