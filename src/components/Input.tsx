@@ -19,9 +19,8 @@ const Input = ({ options, onSelect }: Props): JSX.Element => {
     if (selectedOption) {
       setText(selectedOption);
       return onSelect(selectedOption);
-    } else {
-      alert("Esta opcion no se encuentra disponible");
     }
+    alert("Esta opcion no se encuentra disponible");
   };
 
   const onEnterKey = (key: string) => key === "Enter" && selectOption(text);

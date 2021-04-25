@@ -1,5 +1,5 @@
 import Layout from "@styles/Layout";
-import Loader from "@styles/Loader";
+import Loader from "@components/Loader";
 import Title from "@styles/Title";
 import Input from "@components/Input";
 import GridClock from "@components/GridClock";
