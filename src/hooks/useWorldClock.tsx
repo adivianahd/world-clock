@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect, useContext } from "react";
 import Zone from "@type/Zone";
-import WorldTimeApiService from "@services/WorldTimeApiService";
+import ApiService from "@services/ApiService";
 
 interface WorldClockValue {
   options: string[];
@@ -36,7 +36,7 @@ export function WorldClockProvider({ children }: WorldClockProviderProps) {
   }, []);
 
   const loadZones = () =>
-    WorldTimeApiService.getZones()
+    ApiService.getZones()
       .then(setOptions)
       .then(() => setLoading(false))
       .catch(loadZones);
@@ -48,7 +48,7 @@ export function WorldClockProvider({ children }: WorldClockProviderProps) {
     if (checkIfItWasAdded(name)) return;
 
     setLoading(true);
-    WorldTimeApiService.getZoneByName(name).then((newZoneSelected) => {
+    ApiService.getZoneByName(name).then((newZoneSelected) => {
       setZonesSelected([newZoneSelected, ...zonesSelected]);
       setLoading(false);
     }).catch(() => {
