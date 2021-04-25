@@ -5,13 +5,13 @@ import GridClock from "@components/GridClock";
 import { useWorldClock } from "@hooks/useWorldClock";
 
 export default function TimeZoneContainer() {
-  const { options, zonesSelected, onSelect } = useWorldClock();
+  const { options, zonesSelected, onSelect, onDelete } = useWorldClock();
 
   return (
     <Container>
       <Layout>
         <Input options={options} onSelect={onSelect} />
-        <GridClock zonesSelected={zonesSelected} />
+        <GridClock zonesSelected={zonesSelected} onDelete={onDelete} />
       </Layout>
     </Container>
   );

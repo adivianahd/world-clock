@@ -4,18 +4,18 @@ import Zone from "@type/Zone";
 
 interface Props {
   zonesSelected: Zone[];
-  onSelect?: (option: string) => void;
+  onDelete: (option: string) => void;
 }
 
-const GridClock = ({ onSelect, zonesSelected }: Props): JSX.Element => {
+const GridClock = ({ onDelete, zonesSelected }: Props): JSX.Element => {
   return (
     <StyleGridClock>
-      {zonesSelected.map((object, index: number) => (
+      {zonesSelected.map((zone, index: number) => (
         <BoxRegionWorld key={index} className={"box-region-world"}>
-          <button>X</button>
-          <h2>{object.name}</h2>
-          <h3>Date: {object.date}</h3>
-          <h3>Hour: {object.hour}</h3>
+          <button onClick={() => onDelete(zone.name)}>X</button>
+          <h2>{zone.name}</h2>
+          <h3>Date: {zone.date}</h3>
+          <h3>Hour: {zone.hour}</h3>
         </BoxRegionWorld>
       ))}
     </StyleGridClock>

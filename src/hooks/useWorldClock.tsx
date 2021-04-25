@@ -6,12 +6,14 @@ interface WorldClockValue {
   options: string[];
   zonesSelected: Zone[];
   onSelect: (name: string) => void;
+  onDelete: (name: string) => void;
 }
 
 const initialValues: WorldClockValue = {
   options: [],
   zonesSelected: [],
   onSelect: () => {},
+  onDelete: () => {},
 };
 
 const WorldClockContext = createContext<WorldClockValue>(initialValues);
@@ -21,8 +23,8 @@ interface WorldClockProviderProps {
 }
 
 export function WorldClockProvider({ children }: WorldClockProviderProps) {
-  const [options, setOptions] = useState(initialValues.options);
-  const [zonesSelected, setZonesSelected] = useState(
+  const [options, setOptions] = useState<string[]>(initialValues.options);
+  const [zonesSelected, setZonesSelected] = useState<Zone[]>(
     initialValues.zonesSelected
   );
 
@@ -30,14 +32,22 @@ export function WorldClockProvider({ children }: WorldClockProviderProps) {
     WorldTimeApiService.getZones().then(setOptions);
   }, []);
 
+  const checkIfItWasAdded = name => zonesSelected.some(zone => zone.name === name)
+
   const onSelect = (name: string) => {
+    if(checkIfItWasAdded(name)) return;
+
     WorldTimeApiService.getZoneByName(name).then((newZoneSelected) => {
       setZonesSelected([newZoneSelected, ...zonesSelected]);
     });
   };
 
+  const onDelete = (name: string) => {
+      setZonesSelected(zonesSelected.filter(zone => zone.name !== name))
+  };
+
   return (
-    <WorldClockContext.Provider value={{ options, zonesSelected, onSelect }}>
+    <WorldClockContext.Provider value={{ options, zonesSelected, onSelect, onDelete }}>
       {children}
     </WorldClockContext.Provider>
   );
