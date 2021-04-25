@@ -1,4 +1,6 @@
 import Zone from "@type/Zone";
+import { getDateByISO }from "@lib/getDateByISO";
+import { getHourByISO }from "@lib/getHourByISO";
 
 const URL_API = "http://worldtimeapi.org/api/timezone/"
 
@@ -26,8 +28,8 @@ const getZones = (): Promise<string[]>  => fetchData(URL_API);
 const getZoneByName = (name: string): Promise<Zone>  => fetchData(`${URL_API}${name}`)
   .then(({datetime}: WorldTimeApiZoneResponse) => ({
     name,
-    date: datetime,
-    hour:  datetime,
+    date: getDateByISO(datetime),
+    hour:  getHourByISO(datetime),
   }))
 
 export default {
