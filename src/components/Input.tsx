@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import ContainerInput from "../../styles/ContainerInput"
-import ContainerOptions from "../../styles/ContainerOptions"
+import { useState } from "react"
+import ContainerInput from "@styles/ContainerInput"
+import ContainerOptions from "@styles/ContainerOptions"
 import { Hint } from 'react-autocomplete-hint';
 
 interface Props {

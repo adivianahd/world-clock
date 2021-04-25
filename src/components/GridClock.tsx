@@ -1,17 +1,10 @@
-import React, { useState } from "react"
-import StyleGridClock from "../../styles/StyleGridClock"
-import BoxRegionWorld from "../../styles/BoxRegionWorld"
-
-
-interface Zone {
-  name: string
-  date: string
-  hour: string
-}
+import StyleGridClock from "@styles/StyleGridClock"
+import BoxRegionWorld from "@styles/BoxRegionWorld"
+import Zone from "@type/Zone"
 
 interface Props {
   zonesSelected: Zone[]
-  onSelect: (option: string) => void
+  onSelect?: (option: string) => void
 }
 
 const GridClock = ({ onSelect, zonesSelected }: Props): JSX.Element => {
