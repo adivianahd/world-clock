@@ -28,6 +28,7 @@ const fetchData = (url: string) =>
     .catch(() => {});
 
 const getZones = (): Promise<string[]> => fetchData(URL_API);
+
 const getZoneByName = (name: string): Promise<Zone> =>
   fetchData(`${URL_API}${name}`).then(
     ({ datetime }: WorldTimeApiZoneResponse) => ({

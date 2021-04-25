@@ -14,8 +14,8 @@ const initialValues: WorldClockValue = {
   options: [],
   loading: true,
   zonesSelected: [],
-  onSelect: () => {},
-  onDelete: () => {},
+  onSelect: () => { },
+  onDelete: () => { },
 };
 
 const WorldClockContext = createContext<WorldClockValue>(initialValues);
@@ -32,20 +32,27 @@ export function WorldClockProvider({ children }: WorldClockProviderProps) {
   const [loading, setLoading] = useState<boolean>(initialValues.loading);
 
   useEffect(() => {
+    loadZones();
+  }, []);
+
+  const loadZones = () =>
     WorldTimeApiService.getZones()
       .then(setOptions)
-      .then(() => setLoading(false));
-  }, []);
+      .then(() => setLoading(false))
+      .catch(loadZones);
 
   const checkIfItWasAdded = (name) =>
     zonesSelected.some((zone) => zone.name === name);
 
   const onSelect = (name: string) => {
     if (checkIfItWasAdded(name)) return;
+
     setLoading(true);
     WorldTimeApiService.getZoneByName(name).then((newZoneSelected) => {
       setZonesSelected([newZoneSelected, ...zonesSelected]);
       setLoading(false);
+    }).catch(() => {
+      onSelect(name)
     });
   };
 
