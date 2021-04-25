@@ -7,7 +7,6 @@ const StyleGridClock = styled.div`
   justify-content: center;
   max-width: 900px;
   padding: 50px;
-  }
-  `;
+`;
 
 export default StyleGridClock;

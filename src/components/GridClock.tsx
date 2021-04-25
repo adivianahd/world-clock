@@ -1,5 +1,7 @@
 import StyleGridClock from "@styles/StyleGridClock";
-import BoxRegionWorld from "@styles/BoxRegionWorld";
+import CardZone from "@styles/CardZone";
+import ZoneName from "@styles/ZoneName";
+import ZoneInfo from "@styles/ZoneInfo";
 import Zone from "@type/Zone";
 
 interface Props {
@@ -10,13 +12,13 @@ interface Props {
 const GridClock = ({ onDelete, zonesSelected }: Props): JSX.Element => {
   return (
     <StyleGridClock>
-      {zonesSelected.map((zone, index: number) => (
-        <BoxRegionWorld key={index} className={"box-region-world"}>
+      {zonesSelected.map((zone) => (
+        <CardZone key={zone.name}>
           <button onClick={() => onDelete(zone.name)}>X</button>
-          <h2>{zone.name}</h2>
-          <h3>Date: {zone.date}</h3>
-          <h3>Hour: {zone.hour}</h3>
-        </BoxRegionWorld>
+          {zone.name.split('/').map(e => <ZoneName key={e}>{e}</ZoneName>)}
+          <ZoneInfo>Date: {zone.date}</ZoneInfo>
+          <ZoneInfo>Hour: {zone.hour}</ZoneInfo>
+        </CardZone>
       ))}
     </StyleGridClock>
   );

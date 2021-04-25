@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ContainerInput from "@styles/ContainerInput";
 import ContainerOptions from "@styles/ContainerOptions";
+import Option from "@styles/Option";
 import { Hint } from "react-autocomplete-hint";
 
 interface Props {
@@ -36,21 +37,20 @@ const Input = ({ options, onSelect }: Props): JSX.Element => {
           />
         </Hint>
         <button onClick={() => selectOption(text)}>{">"}</button>
+        <ContainerOptions>
+          {text !== "" &&
+            options
+              .filter((valueText) => valueText.indexOf(text) !== -1)
+              .map((optionAutocomplete) => (
+                text !== optionAutocomplete && <Option
+                  key={optionAutocomplete}
+                  onClick={() => setText(optionAutocomplete)}
+                >
+                   {optionAutocomplete}
+                </Option>
+              ))}
+        </ContainerOptions>
       </ContainerInput>
-      <ContainerOptions>
-        {text !== "" &&
-          options
-            .filter((valueText) => valueText.indexOf(text) !== -1)
-            .map((optionAutocomplete) => (
-              <div
-                className={"option"}
-                key={optionAutocomplete}
-                onClick={() => setText(optionAutocomplete)}
-              >
-                {text !== optionAutocomplete && optionAutocomplete}
-              </div>
-            ))}
-      </ContainerOptions>
     </>
   );
 };
