@@ -14,15 +14,14 @@ export default function TimeZoneContainer() {
     onDelete,
   } = useWorldClock();
 
+    if(loading) return(<Loader />);
+
   return (
-    <>
-      {loading && <Loader />}
       <Layout>
         <Title>World Clock</Title>
         <p>Select yours time zones</p>
         <Input options={options} onSelect={onSelect} />
         <GridClock zonesSelected={zonesSelected} onDelete={onDelete} />
       </Layout>
-    </>
   );
 }

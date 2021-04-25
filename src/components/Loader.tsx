@@ -1,7 +1,7 @@
 import FadeLoader from "@styles/FadeLoader";
 import StyleLoad from "@styles/StyleLoad";
 
-const Loading: string = "LOADING";
+const Loading: string = "LOADING"
 
 const Loader = (): JSX.Element => {
   return (
@@ -10,7 +10,7 @@ const Loader = (): JSX.Element => {
         <StyleLoad key={letter}>{letter}</StyleLoad>
       ))}
     </FadeLoader>
-  );
-};
+  )
+}
 
 export default Loader;

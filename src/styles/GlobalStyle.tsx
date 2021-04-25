@@ -11,12 +11,11 @@ const GlobalStyle = createGlobalStyle`
 
     background-image: radial-gradient(${(p) =>
       p.theme.primaryColor} 1px, transparent 1px), radial-gradient(${(p) =>
-  p.theme.secondaryColor} 2px, transparent 1px);
+      p.theme.secondaryColor} 2px, transparent 1px);
     background-color: ${(p) => p.theme.backgroundColor};
     background-position: 0 0, 50px 50px;
     background-size: 100px 100px;
   }
-
 `;
 
 export default GlobalStyle;

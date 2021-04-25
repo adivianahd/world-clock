@@ -18,7 +18,8 @@ const Input = ({ options, onSelect }: Props): JSX.Element => {
     );
     if (selectedOption) {
       setText(selectedOption);
-      return onSelect(selectedOption);
+      onSelect(selectedOption);
+      return setText("");
     }
     alert("Esta opcion no se encuentra disponible");
   };
