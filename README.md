@@ -1,6 +1,6 @@
 ## World Clock
 
-This is a simple application made in [Next.js](https://nextjs.org/) js in order to meet the fronted challenge to _Coderio
+This is a simple application made in [Next.js](https://nextjs.org/) js 
 
 
 ## Demo
